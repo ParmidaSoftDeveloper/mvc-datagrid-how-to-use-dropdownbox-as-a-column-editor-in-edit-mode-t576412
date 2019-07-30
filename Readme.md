@@ -7,7 +7,7 @@
 <!-- default file list end -->
 # MVC DataGrid - How to use DropDownBox as a column editor in edit mode
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t576412)**
+**[[Run Online]](https://codecentral.devexpress.com/t576412/)**
 <!-- run online end -->
 
 
