@@ -11,6 +11,9 @@
 * [Index.cshtml](./MVC/T548916/Views/Home/Index.cshtml)
 <!-- default file list end -->
 # MVC DataGrid - How to use DropDownBox as a column editor in edit mode
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/t576412/)**
+<!-- run online end -->
 
 <p>This example illustrates how to define <a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDropDownBox/">dxDropDownBox</a> with an embedded <a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/">dxDataGrid</a> for editing data in MVC via an <a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/columns/#editCellTemplate">EditCellTemplate</a>. Run the example and check the State column to see this approach in action.<br><br>For a client-side solution, please refer to the <a href="https://www.devexpress.com/Support/Center/p/T548916">dxDataGrid - How to use dxDropDownBox as a column editor in edit mode</a> example.<br><br>Click the "Show Implementation Details" link to see step-by-step instructions.</p>
 
