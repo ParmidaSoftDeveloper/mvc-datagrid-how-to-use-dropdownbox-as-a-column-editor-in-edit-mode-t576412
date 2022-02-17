@@ -3,23 +3,81 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T576412)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+# MVC DataGrid - How to use DropDownBox as a column editor in edit mode
+
+This example illustrates how to embed DevExtreme ASP.NET MVC [DropDownBox](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder) into an edit cell in DevExtreme ASP.NET MVC [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1). 
+
+![DevExtreme MVC DataGrid - How to use DropDownBox as a column editor in edit mode](datagrid-dropdown-edit-mode.png)
+
+Refer to the [DevExtreme DataGrid - How to use DropDownBox as a column editor in edit mode](https://github.com/DevExpress-Examples/datagrid-how-to-use-dropdownbox-as-a-column-editor-in-edit-mode-t548916) example to see how to implement this task on the client. 
+
+## Files to Look At
 
 * [OrdersController.cs](./MVC/T548916/Controllers/OrdersController.cs)
 * [DxDropDownBox.cshtml](./MVC/T548916/Views/Home/DxDropDownBox.cshtml)
 * [Index.cshtml](./MVC/T548916/Views/Home/Index.cshtml)
-<!-- default file list end -->
-# MVC DataGrid - How to use DropDownBox as a column editor in edit mode
 
-<p>This example illustrates how to define <a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDropDownBox/">dxDropDownBox</a> with an embedded <a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/">dxDataGrid</a> for editing data in MVC via an <a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/columns/#editCellTemplate">EditCellTemplate</a>. Run the example and check the State column to see this approach in action.<br><br>For a client-side solution, please refer to the <a href="https://www.devexpress.com/Support/Center/p/T548916">dxDataGrid - How to use dxDropDownBox as a column editor in edit mode</a> example.<br><br>Click the "Show Implementation Details" link to see step-by-step instructions.</p>
+## Implementation Details
 
+Specify the 'State' column's [EditCellTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridColumnBuilder-1.EditCellTemplate.overloads) method to embed DropDownBox into the grid's edit cell.
 
-<h3>Description</h3>
+# [CSHTML](#tab/tabid-cshtml)
 
-<p>Perform the following steps to complete this task:&nbsp;</p>
-<p>1.&nbsp;Use&nbsp;<a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/columns/#editCellTemplate">EditCellTemplate</a>&nbsp;to define MVC DropDownBox for a required column.<br>2.&nbsp;&nbsp;Implement the&nbsp;<a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDropDownBox/Configuration/#contentTemplate">Template</a>&nbsp;function to define MVC DataGrid&nbsp;and handle its&nbsp;<a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/#onSelectionChanged">selectionChanged</a>&nbsp;event to pass selected keys to DropDownBox. In addition, handle the&nbsp;<a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDropDownBox/Configuration/#onValueChanged">dxDropDownBox.valueChanged</a>&nbsp;event&nbsp;to adjust the DataGrid selection<br>3. Use&nbsp;<a href="https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/columns/#cellTemplate">CellTemplate</a>&nbsp;to covert an array of selected keys to a human-readable text.<br><br>For more information about MVC templates, please review the&nbsp;<a href="https://docs.devexpress.com/DevExtremeAspNetMvc/400702/get-started/configure-a-project#create-a-new-project-from-templates">Implementing Templates</a>&nbsp;help topic.</p>
+```cshtml
+@(Html.DevExtreme().DataGrid()
+    //...
+    columns.Add()
+        .DataField("StateID")
+        .Caption("State")
+        .EditCellTemplate(@<text>
+            @Html.Partial("DxDropDownBox")
+        </text>);
+)
+```
+***
 
-<br/>
+Specify the [DropDownBox.ContentTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.ContentTemplate.overloads) property to display DropDownBox content in the table format (in the [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1)). Handle the [DataGrid.OnSelectionChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1.OnSelectionChanged.overloads) event to pass selected keys to DropDownBox. To adjust the DataGrid selection, handle the [DropDownBox.OnValueChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.OnValueChanged.overloads) event.
 
+# [CSHTML](#tab/tabid-cshtml)
 
+```cshtml
+@(Html.DevExtreme().DropDownBox()
+    //...
+    .OnValueChanged(@"function(args) { gridBox_valueChanged(args, setValue); }")
+    .ContentTemplate(@<text>
+        @(Html.DevExtreme().DataGrid()
+            //...
+            .Columns(columns =>
+            {
+                columns.Add().DataField("ID");
+                columns.Add().DataField("Name");
+            })
+            .OnSelectionChanged(@"function(args) { onSelectionChanged(args, component); }")
+        )
+        //...
+    </text>)
+)
+```
+***
+
+# [JS](#tab/tabid-js)
+
+```js
+function gridBox_valueChanged(args, setValueMethod) {
+    var $dataGrid = $("#dDBoxDataGrid");
+    if ($dataGrid.length) {
+        var dataGrid = $dataGrid.dxDataGrid("instance");
+        dataGrid.selectRows(args.value, false);
+    }
+    setValueMethod(args.value);
+}
+function onSelectionChanged(e, dropDownBoxInstance) {
+    var keys = e.selectedRowKeys;
+    dropDownBoxInstance.option("value", keys);
+}
+```
+***
+
+## Documentation
+
+[How to Implement templates in DevExtreme ASP.NET MVC](https://docs.devexpress.com/DevExtremeAspNetMvc/400702/get-started/configure-a-project#create-a-new-project-from-templates)
