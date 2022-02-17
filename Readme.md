@@ -7,6 +7,10 @@
 
 This example illustrates how to embed DevExtreme ASP.NET MVC [DropDownBox](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder) into an edit cell in DevExtreme ASP.NET MVC [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1). 
 
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/t576412/)**
+<!-- run online end -->
+
 ![DevExtreme MVC DataGrid - How to use DropDownBox as a column editor in edit mode](datagrid-dropdown-edit-mode.png)
 
 Refer to the [DevExtreme DataGrid - How to use DropDownBox as a column editor in edit mode](https://github.com/DevExpress-Examples/datagrid-how-to-use-dropdownbox-as-a-column-editor-in-edit-mode-t548916) example to see how to implement this task on the client. 
