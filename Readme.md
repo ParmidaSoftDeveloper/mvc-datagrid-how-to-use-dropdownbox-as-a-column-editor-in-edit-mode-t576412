@@ -25,8 +25,6 @@ Refer to the [DevExtreme DataGrid - How to use DropDownBox as a column editor in
 
 Specify the 'State' column's [EditCellTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridColumnBuilder-1.EditCellTemplate.overloads) method to embed DropDownBox into the grid's edit cell.
 
-# [CSHTML](#tab/tabid-cshtml)
-
 ```cshtml
 @(Html.DevExtreme().DataGrid()
     //...
@@ -38,7 +36,6 @@ Specify the 'State' column's [EditCellTemplate](https://docs.devexpress.com/AspN
         </text>);
 )
 ```
-***
 
 Specify the [DropDownBox.ContentTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.ContentTemplate.overloads) property to display DropDownBox content in the table format (in the [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1)). Handle the [DataGrid.OnSelectionChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1.OnSelectionChanged.overloads) event to pass selected keys to DropDownBox. To adjust the DataGrid selection, handle the [DropDownBox.OnValueChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.OnValueChanged.overloads) event.
 
