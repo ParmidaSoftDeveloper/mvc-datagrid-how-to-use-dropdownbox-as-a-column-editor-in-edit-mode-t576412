@@ -23,7 +23,7 @@ Refer to the [DevExtreme DataGrid - How to use DropDownBox as a column editor in
 
 ## Implementation Details
 
-Specify the 'State' column's [EditCellTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridColumnBuilder-1.EditCellTemplate.overloads) method to embed DropDownBox into the grid's edit cell.
+Use the 'State' column's [EditCellTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridColumnBuilder-1.EditCellTemplate.overloads) method to embed DropDownBox into the grid's edit cell.
 
 ```cshtml
 @(Html.DevExtreme().DataGrid()
@@ -37,7 +37,7 @@ Specify the 'State' column's [EditCellTemplate](https://docs.devexpress.com/AspN
 )
 ```
 
-Specify the [DropDownBox.ContentTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.ContentTemplate.overloads) property to display DropDownBox content in the table format (in the [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1)). Handle the [DataGrid.OnSelectionChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1.OnSelectionChanged.overloads) event to pass selected keys to DropDownBox. To adjust the DataGrid selection, handle the [DropDownBox.OnValueChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.OnValueChanged.overloads) event.
+Use the [DropDownBox.ContentTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.ContentTemplate.overloads) method to display DropDownBox content in the table format (in the [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1)). Handle the [DataGrid.OnSelectionChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1.OnSelectionChanged.overloads) event to pass selected keys to DropDownBox. To adjust the DataGrid selection, handle the [DropDownBox.OnValueChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.OnValueChanged.overloads) event.
 
 ```cshtml
 @(Html.DevExtreme().DropDownBox()
