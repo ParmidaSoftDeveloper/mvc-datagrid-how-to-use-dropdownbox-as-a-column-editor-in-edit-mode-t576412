@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # MVC DataGrid - How to use DropDownBox as a column editor in edit mode
 
-This example illustrates how to embed DevExtreme ASP.NET MVC [DropDownBox](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder) into an edit cell in DevExtreme ASP.NET MVC [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1). 
+This example illustrates how to embed DevExtreme ASP.NET MVC [DropDownBox](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder) into an edit cell in the DevExtreme ASP.NET MVC [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1). 
 
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/t576412/)**
@@ -37,7 +37,7 @@ Use the 'State' column's [EditCellTemplate](https://docs.devexpress.com/AspNetCo
 )
 ```
 
-Use the [DropDownBox.ContentTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.ContentTemplate.overloads) method to display DropDownBox content in the table format (in the [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1)). Handle the [DataGrid.OnSelectionChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1.OnSelectionChanged.overloads) event to pass selected keys to DropDownBox. To adjust the DataGrid selection, handle the [DropDownBox.OnValueChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.OnValueChanged.overloads) event.
+Use the [DropDownBox.ContentTemplate](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.ContentTemplate.overloads) method to display DropDownBox content in table format (in the [DataGrid](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1)). Handle the [DataGrid.OnSelectionChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DataGridBuilder-1.OnSelectionChanged.overloads) event to pass the selected keys to DropDownBox. To adjust the DataGrid selection, handle the [DropDownBox.OnValueChanged](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.DropDownBoxBuilder.OnValueChanged.overloads) event.
 
 ```cshtml
 @(Html.DevExtreme().DropDownBox()
